@@ -1,0 +1,52 @@
+<!-- start in Header -->
+<!-- </div> -->
+</body>
+</html>
+<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script> -->
+<script src="<?= base_url()?>assets/libraries/js/jquery-1.9.1.js"></script>
+<script src="<?= base_url()?>assets/libraries/js/bootstrap.min.js"></script>
+<!--dynamic table initialization -->
+<script src="<?= base_url()?>assets/libraries/js/ripples.min.js"></script>
+<script src="<?= base_url()?>assets/libraries/js/material.min.js"></script>
+<script src="<?= base_url()?>assets/libraries/js/snackbar.min.js"></script>
+<script src="<?= base_url()?>assets/js/trackEvent.js"></script>
+<script src="<?= base_url()?>assets/js/common.js"></script>
+<script src="<?= base_url()?>assets/js/bb_main.js"></script>
+<?php switch ($bb_page_name) {
+	case 'HOME':
+		echo '<script src="'.base_url().'assets/js/home.js"></script>';
+	break;
+	case 'listing':
+		echo '<script src="http://maps.googleapis.com/maps/api/js"></script><script src="'.base_url().'assets/js/listing.js"></script>';
+	break;
+	default:
+		# code...
+	break;
+}
+?>
+<script>
+jQuery(document).ready(function(){
+  // Add scrollspy to <body>
+  jQuery('body').scrollspy({target: ".navbar", offset: 50});   
+
+  // Add smooth scrolling on all links inside the navbar
+  jQuery("#myNavbar a").on('click', function(event) {
+
+    // Prevent default anchor click behavior
+    event.preventDefault();
+
+    // Store hash
+    var hash = this.hash;
+
+    // Using jQuery's animate() method to add smooth page scroll
+    // The optional number (800) specifies the number of milliseconds it takes to scroll to the specified area
+    jQuery('html, body').animate({
+      scrollTop: (jQuery(hash).offset().top)
+    }, 800, function(){
+   
+      // Add hash (#) to URL when done scrolling (default click behavior)
+      window.location.hash = hash;
+    });
+  });
+});
+</script>
